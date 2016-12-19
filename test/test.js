@@ -56,3 +56,11 @@ describe('Point#naerest', function(){
     expect(centerPoint.nearest([])).toBe(null);
   });
 });
+
+describe('Point#x Point#y', function() {
+  it('should work', function(){
+    var p = Point(3, 4);
+    expect(p.x()).toBe(3);
+    expect(p.y()).toBe(4);
+  });
+});

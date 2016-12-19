@@ -1,8 +1,8 @@
 function Point(x ,y) {
   if (!(this instanceof Point)) return new Point(x,y);
 
-  this.x = x;
-  this.y = y;
+  this._x = x;
+  this._y = y;
 }
 
 Point.isPoint = function(p) {
@@ -10,7 +10,7 @@ Point.isPoint = function(p) {
 };
 
 Point.distanceSrq = function(p1, p2) {
-  return (p1.x-p2.x)*(p1.x-p2.x) + (p1.y-p2.y)*(p1.y-p2.y);
+  return (p1.x()-p2.x())*(p1.x()-p2.x()) + (p1.y()-p2.y())*(p1.y()-p2.y());
 };
 
 Point.distance = function(p1, p2) {
@@ -44,11 +44,11 @@ Point.prototype.nearest = function(points) {
 };
 
 Point.prototype.x = function() {
-  return this.x;
+  return this._x;
 };
 
 Point.prototype.y = function() {
-  return this.y;
+  return this._y;
 };
 
 module.exports = Point;
