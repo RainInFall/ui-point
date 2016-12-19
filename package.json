@@ -1,6 +1,6 @@
 {
   "name": "ui-point",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Point in UI",
   "main": "index.js",
   "scripts": {
