@@ -1,5 +1,3 @@
-var is = require('is');
-
 function Point(x ,y) {
   if (!(this instanceof Point)) return new Point(x,y);
 
