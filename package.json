@@ -1,0 +1,29 @@
+{
+  "name": "ui-point",
+  "version": "0.0.2",
+  "description": "Point in UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RainInFall/ui-point.git"
+  },
+  "keywords": [
+    "point"
+  ],
+  "author": "RainInFall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RainInFall/ui-point/issues"
+  },
+  "homepage": "https://github.com/RainInFall/ui-point#readme",
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "is": "^3.2.0"
+  }
+}
