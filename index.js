@@ -35,4 +35,12 @@ Point.prototype.nearest = function(points) {
   return Point.nearest(this, points);
 };
 
+Point.prototype.x = function() {
+  return this.x;
+};
+
+Point.prototype.y = function() {
+  return this.y;
+};
+
 module.exports = Point;
