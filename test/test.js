@@ -64,3 +64,29 @@ describe('Point#x Point#y', function() {
     expect(p.y()).toBe(4);
   });
 });
+
+describe('Point#equals', function(){
+  it('should equals to self', function(){
+    var p = Point(3, 4);
+    expect(p.equals(p)).toBe(true);
+  });
+  it('should work when equals', function(){
+    var p1 = Point(3, 4);
+    var p2 = Point(3, 4);
+    expect(p1.equals(p2)).toBe(true);
+  });
+  it('should work when not equals', function(){
+    var p1 = Point(3, 4);
+    var p2 = Point(4, 3);
+    expect(p1.equals(p2)).toBe(false);
+  });
+});
+
+describe('Point#clone', function() {
+  it('should not === but equals', function(){
+    var p1 = Point(3,4);
+    var p2 = p1.clone();
+    expect(p1).toNotBe(p2);
+    expect(p1.equals(p2)).toBe(true);
+  });
+});

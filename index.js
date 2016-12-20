@@ -51,4 +51,16 @@ Point.prototype.y = function() {
   return this._y;
 };
 
+Point.prototype.clone = function() {
+  return new Point(this._x, this._y);
+};
+
+Point.equals = function(p1, p2) {
+  return p1.x() == p2.x() && p1.y() == p2.y();
+};
+
+Point.prototype.equals = function(another) {
+  return Point.equals(this, another);
+};
+
 module.exports = Point;
