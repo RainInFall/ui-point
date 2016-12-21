@@ -21,15 +21,10 @@ describe('Point.isPoint', function(){
 });
 
 describe('Point#distance', function(){
-  it('should calculate', function(){
-    var a = Point(0, 0);
-    var b = Point(3, 4);
-    expect(Point.distance(a, b)).toBe(5);
-  });
   it('should work when instance method', function(){
     var a = Point(0, 0);
     var b = Point(3, 4);
-    expect(a.distance(b)).toBe(5);
+    expect(a.offsetTo(b).distance()).toBe(5);
   });
 });
 
@@ -88,5 +83,15 @@ describe('Point#clone', function() {
     var p2 = p1.clone();
     expect(p1).toNotBe(p2);
     expect(p1.equals(p2)).toBe(true);
+  });
+});
+
+describe('Point#offset', function() {
+  it('should work', function() {
+    var p1 = Point(0, 0);
+    var p2 = Point(3, 4);
+    var offset = p1.offsetTo(p2);
+    expect(offset.x()).toBe(3);
+    expect(offset.y()).toBe(4);
   });
 });

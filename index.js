@@ -1,3 +1,5 @@
+var Offset = require('ui-offset');
+
 function Point(x ,y) {
   if (!(this instanceof Point)) return new Point(x,y);
 
@@ -9,20 +11,28 @@ Point.isPoint = function(p) {
   return p instanceof Point;
 };
 
-Point.distanceSrq = function(p1, p2) {
-  return (p1.x()-p2.x())*(p1.x()-p2.x()) + (p1.y()-p2.y())*(p1.y()-p2.y());
+Point.offsetTo = function(p1, p2) {
+  return Offset(p2.x()-p1.x(), p2.y()-p1.y());
 };
 
-Point.distance = function(p1, p2) {
-  return Math.sqrt(Point.distanceSrq(p1, p2));
+Point.offsetFrom = function(p1, p2) {
+  return Offset(p1.x()-p2.x(), p1.y()-p2.y());
+};
+
+Point.prototype.offsetTo = function(another) {
+  return Point.offsetTo(this, another);
+};
+
+Point.prototype.offsetFrom = function(another) {
+  return Point.offsetFrom(this, another);
+}
+
+Point.prototype.distanceSrq = function(another) {
+  return this.offsetTo(another).distanceSrq();
 };
 
 Point.prototype.distance = function(another) {
-  return Point.distance(this, another);
-};
-
-Point.prototype.distanceSrq = function(another) {
-  return Point.distanceSrq(this, another);
+  return this.offsetTo(another).distance();
 };
 
 Point.nearest = function(centerPoint, points) {
