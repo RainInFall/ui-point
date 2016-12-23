@@ -26,10 +26,6 @@ Point.prototype.distanceSrq = function(another) {
 };
 
 Point.nearest = function(centerPoint, points) {
-  if (!Point.isPoint(centerPoint)) {
-    return null;
-  }
-
   return points.reduce(function(minPoint, currentPoint){
     var currentDistance = centerPoint.distance(currentPoint);
     if (currentDistance < minPoint.distance ) {
@@ -61,6 +57,11 @@ Point.equals = function(p1, p2) {
 
 Point.prototype.equals = function(another) {
   return Point.equals(this, another);
+};
+
+Point.prototype.move = function(offset) {
+  this._x += offset.x();
+  this._y += offset.y();
 };
 
 module.exports = Point;

@@ -1,4 +1,5 @@
 var Point = require('..');
+var Offset  =require('ui-offset');
 var expect = require('expect');
 
 describe('Point', function() {
@@ -88,5 +89,15 @@ describe('Point#clone', function() {
     var p2 = p1.clone();
     expect(p1).toNotBe(p2);
     expect(p1.equals(p2)).toBe(true);
+  });
+});
+
+describe('Point#move', function(){
+  it('should work', function() {
+    var p = Point(0, 0);
+    var offset = Offset(3, 4);
+    p.move(offset);
+    expect(p.x()).toBe(3);
+    expect(p.y()).toBe(4);
   });
 });
